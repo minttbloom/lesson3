@@ -1,8 +1,16 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
 func letterCheck(a, b string) bool {
+	a = strings.TrimSpace(" ")
+	b = strings.TrimSpace(" ")
+	if len(a) != len(b) {
+		return false
+	}
 	for _, v := range a {
 		charIsFind := false
 		for _, v2 := range b {
@@ -18,5 +26,5 @@ func letterCheck(a, b string) bool {
 }
 
 func main() {
-	fmt.Println(letterCheck("asdf", "asfd"))
+	fmt.Println(letterCheck("sadf   tr", "a	sfd rt"))
 }
