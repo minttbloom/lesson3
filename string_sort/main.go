@@ -5,28 +5,20 @@ import (
 	"sort"
 )
 
-func strMap2() map[string]int {
+func sortingStringArray(inputArray []string) []string {
+	sort.SliceStable(inputArray, func(i, j int) bool {
+		return inputArray[i] < inputArray[j]
+	})
+	return inputArray
+}
+
+func main() {
 	inputArray := []string{
 		"1234567890",
 		"123456789098765",
 		"1234",
 		"12345678",
 	}
-	mapInputArray := make(map[string]int, len(inputArray))
-	for k, v := range inputArray {
-		mapInputArray[v] = k
-	}
-
-	// sort
-	sort.SliceStable(mapInputArray, func(i, j int) bool {
-		first := mapInputArray[i]
-		return mapInputArray < mapInputArray[j]
-	})
-
-	return mapInputArray
-}
-
-func main() {
-	sortedArray := strMap2()
+	sortedArray := sortingStringArray(inputArray)
 	fmt.Println(sortedArray)
 }
