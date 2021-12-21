@@ -7,4 +7,6 @@ import (
 
 func TestLenght(t *testing.T) {
 	assert.Equal(t, true, letterCheck("a", "a"))
+	assert.NotEqual(t, true, letterCheck("a", "b"))
+	assert.NotEqual(t, true, letterCheck("a", " "))
 }

@@ -1,19 +1,29 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"sort"
+)
 
 func strMap2() map[string]int {
-	inputArray := []string {
+	inputArray := []string{
 		"1234567890",
 		"123456789098765",
 		"1234",
 		"12345678",
 	}
-	m := make(map[string]int, len(inputArray))
+	mapInputArray := make(map[string]int, len(inputArray))
 	for k, v := range inputArray {
-		m[v] = k
+		mapInputArray[v] = k
 	}
-	return m
+
+	// sort
+	sort.SliceStable(mapInputArray, func(i, j int) bool {
+		first := mapInputArray[i]
+		return mapInputArray < mapInputArray[j]
+	})
+
+	return mapInputArray
 }
 
 func main() {
